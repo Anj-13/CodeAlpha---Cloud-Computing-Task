@@ -4,22 +4,40 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(
+    indexes = {
+        @Index(name = "idx_customer_record_email", columnList = "email"),
+        @Index(name = "idx_customer_record_phone", columnList = "phone")
+    },
+    uniqueConstraints = {
+        @UniqueConstraint(name = "uk_customer_record_fingerprint", columnNames = "finger_print_hash")
+    }
+)
 public class CustomerRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 120)
     private String fullname;
+
+    @Column(nullable = false, length = 150)
     private String email;
+
+    @Column(nullable = false, length = 20)
     private String phone;
+
+    @Column(length = 255)
     private String address;
 
+    @Column(name = "finger_print_hash", nullable = false, length = 64, unique = true)
     private String fingerPrintHash;
 
     @Enumerated(EnumType.STRING)
     private RecordStatus status;
     
+    @Column(length = 255)
     private String validationReason;
 
     private LocalDateTime createdAt;
