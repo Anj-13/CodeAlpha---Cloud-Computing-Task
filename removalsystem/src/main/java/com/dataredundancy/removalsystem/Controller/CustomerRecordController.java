@@ -44,7 +44,7 @@ public class CustomerRecordController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         }
 
-        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(response);
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_CONTENT).body(response);
     }
 
     @GetMapping

@@ -4,7 +4,7 @@
             "type": "java",
             "name": "Spring Boot-RemovalsystemApplication<removalsystem>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/removalsystem",
             "mainClass": "com.dataredundancy.removalsystem.RemovalsystemApplication",
             "projectName": "removalsystem",
             "args": "",
